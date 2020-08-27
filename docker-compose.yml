@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+        activationserver1:
+                build: 
+                       context: ./
+                       dockerfile: node.Dockerfile
+                image: activationserver
+                ports:
+                        - "3001:3001"
+                environment:
+                        - jwtPrivateKey=CLAVE2020
+                        - NODE_PORT=3001
+        activationserver2:
+                image: activationserver
+                ports:
+                        - "3002:3002"
+                environment:
+                        - jwtPrivateKey=CLAVE2020
+                        - NODE_PORT=3002
+
+
